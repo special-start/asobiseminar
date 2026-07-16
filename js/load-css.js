@@ -2,6 +2,7 @@
 (function() {
   const cssFiles = [
     '/asobiseminar/gaibu/unpkg.css',
+    '/asobiseminar/nav/nav.css',
     '/asobiseminar/css/style.css?v=2026'
   ];
 
