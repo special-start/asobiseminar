@@ -45,16 +45,8 @@ if (document.readyState === 'loading') {
     injectNavElements();
 }
 
-// 現在のページに基づいてベースURL を決定（サブページからのアクセスを考慮）
-const baseURL = getBaseURL();
-
-function getBaseURL() {
-    const pathname = window.location.pathname;
-    if (pathname.includes('/subpages/')) {
-        return '/asobiseminar/';
-    }
-    return '/asobiseminar/';
-}
+// 現在のページに基づいてベースURLを決定（サブページからのアクセスを考慮）
+const baseURL = '/asobiseminar/';
 
 const menuData = [
     { text: 'ホーム', url: baseURL + 'index.html' },
