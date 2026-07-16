@@ -203,10 +203,7 @@ window.addEventListener('mousedown', (e) => {
 
 window.addEventListener('mouseup', (e) => {
     if (!menuOpen && !lockEvent && !isTouchMode) {
-        const pressDuration = Date.now() - mouseDownTime;
-        if (pressDuration < 400 && menuOpen === false) {
-            endPress();
-        }
+        endPress();
     }
 });
 
@@ -246,6 +243,7 @@ window.addEventListener('touchend', () => {
     if (isTouchMode && !menuOpen && !lockEvent) endPress(); 
 });
 
+// メニュー外をクリックして閉じる
 window.addEventListener('click', (e) => {
     if (lockEvent) return;
     if (menuOpen && !e.target.classList.contains('menu-item')) closeMenu();
