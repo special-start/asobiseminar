@@ -1,0 +1,93 @@
+/* css/programmer.css - 軽量派手バランス版 */
+
+.programmer-main {
+  padding: 0;
+  font-family: var(--font-family, system-ui, sans-serif);
+}
+
+.programmer-hero {
+  background: linear-gradient(135deg, var(--main-color), var(--balance-color));
+  padding: 160px 40px 120px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.programmer-title {
+  font-size: 5rem;
+  font-weight: 900;
+  color: var(--variation-color);
+  text-shadow: 0 10px 40px rgba(0,0,0,0.6);
+  animation: titleGlow 3s ease-in-out infinite alternate;
+}
+
+@keyframes titleGlow {
+  from { text-shadow: 0 10px 40px rgba(0,0,0,0.6); }
+  to { text-shadow: 0 15px 60px var(--balance-color); }
+}
+
+.programmer-subtitle {
+  font-size: 1.8rem;
+  color: rgba(255,255,255,0.9);
+  margin: 20px 0 40px;
+}
+
+.programmer-tag {
+  background: rgba(255,255,255,0.2);
+  padding: 12px 32px;
+  border-radius: 50px;
+  border: 2px solid rgba(255,255,255,0.5);
+  transition: all 0.4s ease;
+}
+
+.programmer-tag:hover {
+  transform: scale(1.15);
+  background: var(--balance-color);
+  color: var(--accent-color);
+}
+
+/* 本文部分をしっかり適用 */
+.programmer-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 80px 40px;
+  background: rgba(0,0,0,0.6);
+}
+
+.programmer-mission,
+.programmer-skills,
+.programmer-projects,
+.programmer-philosophy,
+.programmer-tools {
+  margin-bottom: 80px;
+  padding: 40px;
+  background: rgba(255,255,255,0.05);
+  border-radius: 16px;
+  border-left: 6px solid var(--main-color);
+}
+
+.programmer-tech-grid,
+.lang-grid,
+.programmer-philosophy-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 24px;
+}
+
+.programmer-tech-card,
+.lang-card,
+.programmer-philosophy-item {
+  padding: 32px;
+  background: rgba(255,255,255,0.08);
+  border-radius: 12px;
+  transition: all 0.4s ease;
+  border: 1px solid var(--balance-color);
+}
+
+.programmer-tech-card:hover,
+.lang-card:hover,
+.programmer-philosophy-item:hover {
+  transform: translateY(-12px);
+  border-color: var(--main-color);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+}
