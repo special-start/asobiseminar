@@ -1,8 +1,9 @@
+/* nav/nav.css - Design System Integration */
 :root {
     --magic-particle-hue: 185;
-    --magic-text-color: #ffffff;
-    --magic-bg-color: #4facfe;
-    --magic-sub-bg-color: #ff0844;
+    --magic-text-color: var(--variation-color, #ffffff);
+    --magic-bg-color: var(--main-color, #4facfe);
+    --magic-sub-bg-color: var(--balance-color, #ff0844);
 }
 
 #particleCanvas, 
@@ -24,6 +25,7 @@
     font-size: 0.9rem;
     line-height: 1.6;
     z-index: 99997;
+    font-family: var(--font-family, 'Noto Sans JP', sans-serif);
 }
 
 #particleCanvas {
@@ -68,6 +70,8 @@
         transform 0.3s, opacity 0.3s;
     box-shadow: 0 0 20px rgba(0, 242, 254, 0.5);
     padding: 8px;
+    font-family: var(--font-family, 'Noto Sans JP', sans-serif);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
 #menu-container .menu-item.show {
@@ -83,9 +87,25 @@
     font-size: 0.7rem;
 }
 
+#menu-container .menu-item:hover {
+    transform: translate(-50%, -50%) scale(1.1);
+    box-shadow: 0 0 30px var(--balance-color, rgba(255, 8, 68, 0.7));
+}
+
 .magic-nav-filter-svg {
     position: absolute;
     width: 0;
     height: 0;
+    pointer-events: none;
+}
+
+/* デザインシステムとの統合：背景のグラデーション */
+#menu-container::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background: linear-gradient(135deg, var(--accent-color, #000000) 0%, var(--main-color, #4facfe) 100%);
+    z-index: -1;
+    opacity: 0.95;
     pointer-events: none;
 }
