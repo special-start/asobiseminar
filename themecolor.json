@@ -1,0 +1,118 @@
+{
+  "themes": [
+    {
+      "name": "CyberNeon (電脳ネオン都市)",
+      "maincolor": "#00ff88",
+      "balancecolor": "#ff00aa",
+      "variationcolor": "#ffffff",
+      "accentcolor": "#0a0a14"
+    },
+    {
+      "name": "DeepSpace (深宇宙探査)",
+      "maincolor": "#44ccff",
+      "balancecolor": "#aa77ff",
+      "variationcolor": "#f0f8ff",
+      "accentcolor": "#02040f"
+    },
+    {
+      "name": "AbsoluteZero (絶対零度の研究棟)",
+      "maincolor": "#7dd3fc",
+      "balancecolor": "#3b82f6",
+      "variationcolor": "#e0f2fe",
+      "accentcolor": "#0a1428"
+    },
+    {
+      "name": "MidnightMagic (深淵の魔導書)",
+      "maincolor": "#00f0ff",
+      "balancecolor": "#9f00ff",
+      "variationcolor": "#f8f0ff",
+      "accentcolor": "#05020f"
+    },
+    {
+      "name": "SakuraBlossom (深窓の千本桜)",
+      "maincolor": "#ff4d94",
+      "balancecolor": "#ff99cc",
+      "variationcolor": "#3f0a1f",
+      "accentcolor": "#fff0f5"
+    },
+    {
+      "name": "ForestWhisper (いにしえの聖霊の森)",
+      "maincolor": "#22ffaa",
+      "balancecolor": "#228822",
+      "variationcolor": "#f0fff0",
+      "accentcolor": "#02100a"
+    },
+    {
+      "name": "OceanAbyss (深海のアトランティス)",
+      "maincolor": "#4d9fff",
+      "balancecolor": "#00e6cc",
+      "variationcolor": "#e0f2fe",
+      "accentcolor": "#02050f"
+    },
+    {
+      "name": "VampireCastle (吸血鬼の晩餐会)",
+      "maincolor": "#cc1122",
+      "balancecolor": "#880000",
+      "variationcolor": "#ffe6e6",
+      "accentcolor": "#0f0000"
+    },
+    {
+      "name": "GoldenHour (黄金の時間)",
+      "maincolor": "#ffaa44",
+      "balancecolor": "#ffdd88",
+      "variationcolor": "#3f2a1f",
+      "accentcolor": "#fff8e8"
+    },
+    {
+      "name": "MysticFog (神秘の霧)",
+      "maincolor": "#88aaff",
+      "balancecolor": "#bb88ff",
+      "variationcolor": "#f0f8ff",
+      "accentcolor": "#0f0f1f"
+    },
+    {
+      "name": "MoonlitGarden (月明かりの庭)",
+      "maincolor": "#aaccff",
+      "balancecolor": "#88ffcc",
+      "variationcolor": "#f0fff8",
+      "accentcolor": "#0f1a2a"
+    },
+    {
+      "name": "NeonTokyo (ネオントーキョー)",
+      "maincolor": "#ff00aa",
+      "balancecolor": "#00ffdd",
+      "variationcolor": "#ffffff",
+      "accentcolor": "#0f0a1f"
+    },
+    {
+      "name": "ArcticLight (北極光)",
+      "maincolor": "#44ddff",
+      "balancecolor": "#88ffaa",
+      "variationcolor": "#f0fff8",
+      "accentcolor": "#0a1f2a"
+    },
+    {
+      "name": "CrystalLab (結晶実験室)",
+      "maincolor": "#88ffff",
+      "balancecolor": "#ff88cc",
+      "variationcolor": "#f0ffff",
+      "accentcolor": "#0a1f2a"
+    },
+    {
+      "name": "EmberForge (炎の鍛冶場)",
+      "maincolor": "#ff4422",
+      "balancecolor": "#ffaa66",
+      "variationcolor": "#fff0e0",
+      "accentcolor": "#2a1f1a"
+    }
+  ],
+  "fonts": [
+    {"name": "Noto Sans JP - モダン標準", "fontFamily": "'Noto Sans JP', sans-serif"},
+    {"name": "Noto Serif JP - エレガント正体", "fontFamily": "'Noto Serif JP', serif"},
+    {"name": "M PLUS 1 - ゴシック体", "fontFamily": "'M PLUS 1', sans-serif"},
+    {"name": "Zen Kaku Gothic New - 明朝体", "fontFamily": "'Zen Kaku Gothic New', sans-serif"},
+    {"name": "Space Grotesk - SF未来的", "fontFamily": "'Space Grotesk', sans-serif"},
+    {"name": "Poppins - ポップ", "fontFamily": "'Poppins', sans-serif"},
+    {"name": "Inter - 幾何学的", "fontFamily": "'Inter', sans-serif"}
+  ]
+}
