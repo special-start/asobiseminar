@@ -8,40 +8,13 @@
   <!-- 共通スクリプト -->
   <script src="/asobiseminar/js/load-css.js"></script>
   <script src="/asobiseminar/js/setThemeColor.js"></script>
+  <!-- 新ナビシステム -->
+  <script src="/asobiseminar/nav/nav-core.js"></script>
+  <script src="/asobiseminar/nav/nav-particle.js"></script>
 </head>
 <body>
 
-  <!-- ハンバーガーメニュー -->
-  <details class="magic-menu">
-    <summary class="magic-trigger" aria-label="空間を開放する">
-      <div></div>
-      <span></span>
-    </summary>
-    
-    <div class="magic-portal-bg"></div>
-
-    <nav class="magic-theater">
-      <ul class="magic-list">
-        <li style="--item-index: 1;"><a href="/asobiseminar/index.html">ホーム</a></li>
-        <li style="--item-index: 2;"><a href="/asobiseminar/subpages/members.html">メンバー</a></li>
-        <li style="--item-index: 3;" class="magic-has-submenu">
-          <details class="magic-submenu-details">
-            <summary class="magic-submenu-trigger">Groups（グループ）</summary>
-            <ul class="magic-sub-list">
-              <li><a href="/asobiseminar/subpages/groups/index.html">Group トップ</a></li>
-              <li><a href="/asobiseminar/subpages/groups/one.html">Group 1</a></li>
-              <li><a href="/asobiseminar/subpages/groups/two.html">Group 2</a></li>
-              <li><a href="/asobiseminar/subpages/groups/three.html">Group 3</a></li>
-            </ul>
-          </details>
-        </li>
-        <li style="--item-index: 4;"><a href="/asobiseminar/subpages/aboutsite.html">このサイトについて</a></li>
-        <li style="--item-index: 5;"><a href="/asobiseminar/subpages/gallery.html">ギャラリー</a></li>
-        <li style="--item-index: 6;"><a href="/asobiseminar/sitemap.html">サイトマップ</a></li>
-        <li style="--item-index: 7;"><a href="/asobiseminar/settigs.html">テーマ設定</a></li>
-      </ul>
-    </nav>
-  </details>
+  <!-- メニューHTML自動生成（nav-core.jsで完全生成） -->
 
   <main class="app-container">
     <header style="margin-bottom: 60px;">
@@ -76,7 +49,7 @@
     <section style="margin-bottom: 60px;">
       <h2 style="border-left: 5px solid var(--balance-color); padding-left: 15px; color: var(--balance-color); font-size: 1.8rem; font-weight: 800; margin-bottom: 30px;">チームスピリット</h2>
       <div style="background: rgba(255,255,255,0.05); padding: 32px; border-radius: 12px; border-left: 4px solid var(--balance-color); line-height: 1.8;">
-        <p>このラボは、個々の天才が集まったのではなく、互いに刺激し合う「遊び心」でつながった集団です。制約は創造性の敵。自由であること、試すことを何より大切にしています。</p>
+        <p>このラボは、個々の天才が集まったのではなく、互いに刺激し合う「遊び心」でつながった集団です。制約は創造性の敵。自由であること[...]</p>
         <p>エラーも失敗も、すべてが次の実験への道しるべ。笑いながら、時には真剣に、Web技術の可能性を追求しています。</p>
       </div>
     </section>
@@ -84,7 +57,7 @@
     <section>
       <div style="text-align: center; margin-top: 60px; padding-top: 40px; border-top: 1px solid var(--main-color);">
         <p style="opacity: 0.7; margin-bottom: 16px;">Asobi Lab. の活動詳細は</p>
-        <a href="/asobiseminar/subpages/groups/index.html" style="display: inline-block; padding: 14px 28px; background: linear-gradient(135deg, var(--main-color), var(--balance-color)); color: var(--variation-color); border-radius: 8px; font-weight: bold; text-decoration: none; transition: all 0.3s ease;">➔ グループアクティビティを見る</a>
+        <a href="/asobiseminar/subpages/groups/index.html" style="display: inline-block; padding: 14px 28px; background: linear-gradient(135deg, var(--main-color), var(--balance-color)); color: var(--accent-color); border-radius: 8px; font-weight: bold; transition: all 0.3s;">➔ グループを見る</a>
       </div>
     </section>
   </main>
