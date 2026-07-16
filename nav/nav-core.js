@@ -3,7 +3,7 @@ function injectNavElements() {
     // 1. 操作説明テキストの自動生成
     const ins = document.createElement('div');
     ins.className = 'magic-nav-instruction';
-    ins.innerHTML = '【PC】素早くトリプルクリック<br>【スマホ】0.4秒 長押しタップ<br>魔導メニューが固定表示されます';
+    ins.innerHTML = '【PC】長押しクリック<br>【スマホ】0.5秒 長押しタップ<br>魔導メニューが表示されます';
     document.body.appendChild(ins);
 
     // 2. 粒子キャンバスの自動生成
@@ -17,7 +17,7 @@ function injectNavElements() {
     document.body.appendChild(ctn);
 
     // 4. 有機結合SVGフィルターの自動生成
-    const svgNS = "http://w3.org";
+    const svgNS = "http://www.w3.org/2000/svg";
     const svg = document.createElementNS(svgNS, 'svg');
     svg.setAttribute('class', 'magic-nav-filter-svg');
     
@@ -45,26 +45,36 @@ if (document.readyState === 'loading') {
     injectNavElements();
 }
 
+// 現在のページに基づいてベースURL を決定（サブページからのアクセスを考慮）
+const baseURL = getBaseURL();
+
+function getBaseURL() {
+    const pathname = window.location.pathname;
+    if (pathname.includes('/subpages/')) {
+        return '/asobiseminar/';
+    }
+    return '/asobiseminar/';
+}
+
 const menuData = [
-    { text: 'ホーム', url: 'sample1.html' },
-    { text: 'メンバー', url: 'sample2.html' },
+    { text: 'ホーム', url: baseURL + 'index.html' },
+    { text: 'メンバー', url: baseURL + 'subpages/members.html' },
     { 
         text: 'Groups', 
         children: [
-            { text: 'グループ1', url: 'groups/sample1.html' },
-            { text: 'グループ2', url: 'groups/sample2.html' },
-            { text: 'グループ3', url: 'groups/sample3.html' },
-            { text: 'プログラマ', url: 'groups/programmer.html' }
+            { text: 'Group トップ', url: baseURL + 'subpages/groups/index.html' },
+            { text: 'Group 1', url: baseURL + 'subpages/groups/one.html' },
+            { text: 'Group 2', url: baseURL + 'subpages/groups/two.html' },
+            { text: 'Group 3', url: baseURL + 'subpages/groups/three.html' }
         ] 
     },
-    { text: 'このサイトについて', url: 'about.html', isLong: true },
-    { text: 'ギャラリー', url: 'gallery.html' },
-    { text: 'テーマ設定', url: 'theme.html' }
+    { text: 'このサイトについて', url: baseURL + 'subpages/aboutsite.html', isLong: true },
+    { text: 'ギャラリー', url: baseURL + 'subpages/gallery.html' },
+    { text: 'サイトマップ', url: baseURL + 'sitemap.html' },
+    { text: 'テーマ設定', url: baseURL + 'settings.html' }
 ];
 
 let pressTimer = null;
-let clickCount = 0;
-let lastClickTime = 0;
 let isTouchMode = false;
 let lockEvent = false;
 
@@ -177,7 +187,7 @@ function startPress(x, y) {
     touchX = x;
     touchY = y;
     particles = [];
-    pressTimer = setTimeout(() => { if (isPressing) spawnMenu(touchX, touchY); }, 400);
+    pressTimer = setTimeout(() => { if (isPressing) spawnMenu(touchX, touchY); }, 500);
 }
 
 function endPress() {
@@ -191,20 +201,35 @@ function endPress() {
 window.addEventListener('contextmenu', e => e.preventDefault());
 window.addEventListener('selectstart', e => e.preventDefault());
 
+// マウスイベント：長押しクリック
+let mouseDownTime = 0;
 window.addEventListener('mousedown', (e) => {
     if (menuOpen || lockEvent || e.button !== 0 || isTouchMode) return;
-    const now = Date.now();
-    clickCount = (now - lastClickTime < 400) ? clickCount + 1 : 1;
-    lastClickTime = now;
-    if (clickCount === 3) {
-        touchX = e.clientX + window.scrollX;
-        touchY = e.clientY + window.scrollY;
-        spawnMenu(touchX, touchY);
-        clickCount = 0;
+    mouseDownTime = Date.now();
+    startPress(e.clientX + window.scrollX, e.clientY + window.scrollY);
+});
+
+window.addEventListener('mouseup', (e) => {
+    if (!menuOpen && !lockEvent && !isTouchMode) {
+        const pressDuration = Date.now() - mouseDownTime;
+        if (pressDuration < 400 && menuOpen === false) {
+            endPress();
+        }
     }
 });
-window.addEventListener('mouseup', () => { if (!menuOpen && !lockEvent) endPress(); });
 
+window.addEventListener('mousemove', (e) => {
+    if (isPressing && !menuOpen && !isTouchMode) {
+        const dx = e.clientX + window.scrollX - touchX;
+        const dy = e.clientY + window.scrollY - touchY;
+        const distance = Math.sqrt(dx * dx + dy * dy);
+        if (distance > 20) {
+            endPress();
+        }
+    }
+});
+
+// タッチイベント：長押しタップ
 window.addEventListener('touchstart', (e) => {
     if (!menuOpen && !lockEvent) {
         isTouchMode = true;
@@ -212,7 +237,22 @@ window.addEventListener('touchstart', (e) => {
         startPress(t[0].clientX + window.scrollX, t[0].clientY + window.scrollY);
     }
 });
-window.addEventListener('touchend', () => { if (isTouchMode && !menuOpen && !lockEvent) endPress(); });
+
+window.addEventListener('touchmove', (e) => {
+    if (isPressing && !menuOpen && isTouchMode) {
+        const t = e.changedTouches;
+        const dx = t[0].clientX + window.scrollX - touchX;
+        const dy = t[0].clientY + window.scrollY - touchY;
+        const distance = Math.sqrt(dx * dx + dy * dy);
+        if (distance > 20) {
+            endPress();
+        }
+    }
+});
+
+window.addEventListener('touchend', () => { 
+    if (isTouchMode && !menuOpen && !lockEvent) endPress(); 
+});
 
 window.addEventListener('click', (e) => {
     if (lockEvent) return;
